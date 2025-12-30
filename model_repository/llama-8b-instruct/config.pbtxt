@@ -1,45 +1,9 @@
 name: "llama-8b-instruct"
 backend: "vllm"
 
-input [
-  {
-    name: "text_input"
-    data_type: TYPE_STRING
-    dims: [ 1 ]
-  },
-  {
-    name: "stream"
-    data_type: TYPE_BOOL
-    dims: [ 1 ]
-    optional: true
-  },
-  {
-    name: "sampling_parameters"
-    data_type: TYPE_STRING
-    dims: [ 1 ]
-    optional: true
-  },
-  {
-    name: "lora_name"
-    data_type: TYPE_STRING
-    dims: [ 1 ]
-    optional: true
-  },
-  {
-    name: "exclude_input_in_output"
-    data_type: TYPE_BOOL
-    dims: [ 1 ]
-    optional: true
-  }
-]
-
-output [
-  {
-    name: "text_output"
-    data_type: TYPE_STRING
-    dims: [ -1 ]
-  }
-]
+model_transaction_policy {
+  decoupled: True
+}
 
 instance_group [
   {
