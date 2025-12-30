@@ -5,10 +5,10 @@ services:
       dockerfile: Dockerfile
     container_name: triton_llm
     runtime: nvidia 
-    shm_size: '2g'
+    shm_size: '16g'
     environment:
       - NVIDIA_VISIBLE_DEVICES=1
-      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - NCCL_P2P_DISABLE=1
       - HF_TOKEN=${HF_TOKEN}
     ports:
       - "7000:7000" 
@@ -23,5 +23,5 @@ services:
       --http-port=7000
       --grpc-port=7001
       --metrics-port=7002
-      --model-control-mode=poll
+      --model-control-mode=none
       --log-verbose=0
