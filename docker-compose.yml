@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: triton_llm
+    container_name: test_llm
     runtime: nvidia 
     shm_size: '16g'
     environment:
