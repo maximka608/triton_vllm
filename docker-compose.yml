@@ -11,9 +11,9 @@ services:
       - NCCL_P2P_DISABLE=1
       - HF_TOKEN=${HF_TOKEN}
     ports:
-      - "7000:7000" 
-      - "7001:7001" 
-      - "7002:7002" 
+      - "7200:7000" 
+      - "7201:7001" 
+      - "7202:7002" 
     volumes:
       - ./model_repository:/models
       - ./hf_cache:/hf_cache
