@@ -5,7 +5,7 @@
     "gpu_memory_utilization": 0.45,
     "tensor_parallel_size": 1,
     "max_model_len": 8192,
-    "enforce_eager": true,
+    "enforce_eager": false,
     "trust_remote_code": true,
     "limit_mm_per_prompt": {
         "image": 1
