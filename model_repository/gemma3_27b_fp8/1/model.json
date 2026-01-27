@@ -2,7 +2,7 @@
     "model": "RedHatAI/gemma-3-27b-it-FP8-dynamic",
     "quantization": "compressed-tensors",
     "dtype": "auto",
-    "gpu_memory_utilization": 0.45,
+    "gpu_memory_utilization": 0.5,
     "tensor_parallel_size": 1,
     "max_model_len": 8192,
     "enforce_eager": false,
