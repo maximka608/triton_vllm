@@ -11,17 +11,17 @@ services:
       - NCCL_P2P_DISABLE=1
       - HF_TOKEN=${HF_TOKEN}
     ports:
-      - "7200:7000" 
-      - "7201:7001" 
-      - "7202:7002" 
+      - "7200:7200" 
+      - "7201:7201" 
+      - "7202:7202" 
     volumes:
       - ./model_repository:/models
       - ./hf_cache:/hf_cache
     command: >
       tritonserver
       --model-repository=/models
-      --http-port=7000
-      --grpc-port=7001
-      --metrics-port=7002
+      --http-port=7200
+      --grpc-port=7201
+      --metrics-port=7202
       --model-control-mode=none
       --log-verbose=0
