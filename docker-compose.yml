@@ -1,7 +1,7 @@
 services:
   text_llm:
     build: .
-    container_name: text_llm 
+    container_name: text_llm_test 
     runtime: nvidia 
     shm_size: '16g'
     environment:
