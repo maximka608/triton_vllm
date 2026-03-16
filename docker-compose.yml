@@ -9,7 +9,7 @@ services:
       - HF_TOKEN=${HF_TOKEN}
       - HF_HOME=/hf_cache
     ports:
-      - "8000:8000" 
+      - "8100:8100" 
     volumes:
       - ./hf_cache:/hf_cache
     networks:
@@ -29,7 +29,7 @@ services:
       --enable-prefix-caching
       --kv-cache-dtype fp8
       --speculative-config '{"method":"qwen3_next_mtp","num_speculative_tokens":2}'
-      --port 8000
+      --port 8100
 
 networks:
   ml-net:
