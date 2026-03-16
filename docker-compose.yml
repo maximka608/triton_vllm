@@ -20,12 +20,11 @@ services:
         max-size: "10m" 
         max-file: "3"
     command: >
-      --model Qwen/Qwen3.5-9B
+      --model lovedheart/Qwen3.5-9B-FP8
       --trust-remote-code
       --language-model-only
       --max-model-len 8192
       --gpu-memory-utilization 0.35
-      --reasoning-parser qwen3
       --enable-prefix-caching
       --kv-cache-dtype fp8
       --speculative-config '{"method":"mtp","num_speculative_tokens":2}'
