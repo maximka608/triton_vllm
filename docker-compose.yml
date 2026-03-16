@@ -20,7 +20,7 @@ services:
         max-size: "10m" 
         max-file: "3"
     command: >
-      --model lovedheart/Qwen3.5-9B-FP8
+      --model Qwen/Qwen3.5-9B
       --trust-remote-code
       --language-model-only
       --max-model-len 8192
@@ -28,7 +28,7 @@ services:
       --reasoning-parser qwen3
       --enable-prefix-caching
       --kv-cache-dtype fp8
-      --speculative-config '{"method":"qwen3_next_mtp","num_speculative_tokens":2}'
+      --speculative-config '{"method":"mtp","num_speculative_tokens":2}'
       --port 8100
 
 networks:
