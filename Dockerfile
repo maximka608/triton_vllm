@@ -1,5 +1,6 @@
-FROM nvcr.io/nvidia/tritonserver:25.10-vllm-python-py3
-
-ENV HF_HOME=/hf_cache
+FROM vllm/vllm-openai:v0.17.0
 
 WORKDIR /workspace
+COPY requirements.txt .
+
+RUN pip install -r requirements.txt

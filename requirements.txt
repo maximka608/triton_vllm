@@ -1,7 +1,1 @@
-grpcio==1.67.1
-numpy==2.4.0
-packaging==25.0
-protobuf==5.29.5
-python-rapidjson==1.23
-tritonclient==2.64.0
-urllib3==2.6.2
+numpy==1.26.4

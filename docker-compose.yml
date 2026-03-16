@@ -1,27 +1,36 @@
 services:
-  triton:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: triton_llm
+  text_llm:
+    build: .
+    container_name: text_llm 
     runtime: nvidia 
     shm_size: '16g'
     environment:
       - NVIDIA_VISIBLE_DEVICES=1
-      - NCCL_P2P_DISABLE=1
       - HF_TOKEN=${HF_TOKEN}
+      - HF_HOME=/hf_cache
     ports:
-      - "7000:7000" 
-      - "7001:7001" 
-      - "7002:7002" 
+      - "8000:8000" 
     volumes:
-      - ./model_repository:/models
       - ./hf_cache:/hf_cache
+    networks:
+      - ml-net
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m" 
+        max-file: "3"
     command: >
-      tritonserver
-      --model-repository=/models
-      --http-port=7000
-      --grpc-port=7001
-      --metrics-port=7002
-      --model-control-mode=none
-      --log-verbose=0
+      --model lovedheart/Qwen3.5-9B-FP8
+      --trust-remote-code
+      --language-model-only
+      --max-model-len 8192
+      --gpu-memory-utilization 0.3
+      --reasoning-parser qwen3
+      --enable-prefix-caching
+      --kv-cache-dtype fp8
+      --speculative-config '{"method":"qwen3_next_mtp","num_speculative_tokens":2}'
+      --port 8000
+
+networks:
+  ml-net:
+    external: true
