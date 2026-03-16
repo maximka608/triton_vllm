@@ -5,7 +5,7 @@ services:
     runtime: nvidia 
     shm_size: '16g'
     environment:
-      - NVIDIA_VISIBLE_DEVICES=1
+      - NVIDIA_VISIBLE_DEVICES=0
       - HF_TOKEN=${HF_TOKEN}
       - HF_HOME=/hf_cache
     ports:
