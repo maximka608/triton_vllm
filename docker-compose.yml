@@ -24,7 +24,7 @@ services:
       --trust-remote-code
       --language-model-only
       --max-model-len 8192
-      --gpu-memory-utilization 0.3
+      --gpu-memory-utilization 0.35
       --reasoning-parser qwen3
       --enable-prefix-caching
       --kv-cache-dtype fp8
